@@ -10,8 +10,5 @@ RUN npm install
 COPY . .
 RUN npm run build
 
-# Document the port being used
-EXPOSE 3000
-
 # Use node directly instead of npm
 CMD ["node", "dist/server.js"]
