@@ -1,14 +1,16 @@
 import app from "./app";
+import { createServer } from "http";
 import config from "./config/config";
 import { init } from "./config/wss";
 
-const {wss_port} = config;
 const {port} = config;
 
+const server = createServer(app);
+
 // WSS 8090
-init(wss_port);
+init(server);
 
 // HTTP server 3000
-app.listen(config.port, () => {
+server.listen(port, () => {
     console.log(`Server running on port ${port}`)
 })

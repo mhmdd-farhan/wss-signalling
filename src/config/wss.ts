@@ -1,4 +1,5 @@
 import { debug } from "console";
+import { Server } from "http";
 import WebSocket, { Server as WebSocketServer } from "ws";
 
 // Define channel structure: channelName -> { userId -> WebSocket }
@@ -24,11 +25,11 @@ interface ParsedMessage {
 
 let channels: Channels = {};
 
-export function init(port: number) {
-    debug(`Initializing WebSocket Signaling Server with PC Control on port ${port}`);
+export function init(server: Server) {
+    debug(`Initializing WebSocket Signaling Server with PC Control on ${server}`);
 
     const wss = new WebSocketServer({ 
-        port,
+        server,
         perMessageDeflate: false
     });
 
@@ -60,7 +61,7 @@ export function init(port: number) {
         debug("WebSocket server error:", error);
     });
 
-    debug(`WebSocket Signaling Server with PC Control started successfully on port ${port}`);
+    debug(`WebSocket Signaling Server with PC Control started successfully on ${server}`);
 }
 
 function send(wsClient: WebSocket, type: string, body: any) {

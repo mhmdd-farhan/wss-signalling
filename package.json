@@ -12,6 +12,7 @@
     "build": "tsc"
   },
   "dependencies": {
+    "@types/cors": "^2.8.19",
     "@types/ws": "^8.18.1",
     "accepts": "^2.0.0",
     "acorn": "^8.14.1",
@@ -40,6 +41,7 @@
     "content-type": "^1.0.5",
     "cookie": "^0.7.2",
     "cookie-signature": "^1.2.2",
+    "cors": "^2.8.5",
     "create-require": "^1.1.1",
     "cross-spawn": "^7.0.6",
     "debug": "^4.4.1",
